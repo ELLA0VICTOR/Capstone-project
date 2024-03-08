@@ -17,7 +17,5 @@ urlpatterns=[
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('menu/', MenuItemView.as_view()),
     path('menu/<int:pk>', SingleMenuItemView.as_view()),
-    path('api-token-auth/', obtain_auth_token),
-    
-    
+    path('api-token-auth/', obtain_auth_token)
 ]

@@ -26,7 +26,20 @@ SECRET_KEY = 'django-insecure-d@8+w#(p2lo*20z&96+&wiye^a(0j^%3t9b31@_7=qz#unm=li
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# settings.py
 
+# ...
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        # ... other authentication classes if needed
+    ),
+    # ... other settings
+}
+
+# ...
 
 # Application definition
 
@@ -38,8 +51,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restaurant',
-    'rest_framework'
-]
+    'rest_framework.authtoken',
+    'rest_framework',
+    'djoser'
+] 
+
+DJOSER={"USER_ID_FIELD":"username"}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,3 +150,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
